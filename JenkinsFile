@@ -3,6 +3,7 @@ pipeline {
 
     environment {
         VIRTUAL_ENV = 'venv'
+        PYTHON_EXE = 'C:\Users\konda\Downloads\WINDOWS.X64_213000_db_home\python\bin\python.exe'
     }
 
     stages {
@@ -11,7 +12,7 @@ pipeline {
         stage('Setup Python Environment') {
             steps {
                 script {
-                    bat 'py -m venv %VIRTUAL_ENV%'
+                    bat '%PYTHON_EXE% -m venv %VIRTUAL_ENV%'
                     bat 'call %VIRTUAL_ENV%\\Scripts\\activate'
                 }
             }
@@ -20,7 +21,7 @@ pipeline {
         stage('Run Python Script') {
             steps {
                 script {
-                    bat 'call %VIRTUAL_ENV%\\Scripts\\activate && py Main_python.py'
+                    bat 'call %VIRTUAL_ENV%\\Scripts\\activate && %PYTHON_EXE% Main_python.py'
                 }
             }
         }
