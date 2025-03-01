@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git 'https://github.com/ramsai-1011/For_jenkin_setup.git' // Replace with your repo URL
+                checkout scm 'https://github.com/ramsai-1011/For_jenkin_setup.git' // Replace with your repo URL
             }
         }
 
