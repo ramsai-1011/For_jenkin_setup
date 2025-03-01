@@ -6,11 +6,7 @@ pipeline {
     }
 
     stages {
-        stage('Checkout') {
-            steps {
-                checkout scm 'https://github.com/ramsai-1011/For_jenkin_setup.git' // Replace with your repo URL
-            }
-        }
+        
 
         stage('Setup Python Environment') {
             steps {
