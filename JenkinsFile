@@ -1,0 +1,38 @@
+pipeline {
+    agent any
+
+    environment {
+        VIRTUAL_ENV = 'venv'
+    }
+
+    stages {
+        stage('Checkout') {
+            steps {
+                git 'https://github.com/ramsai-1011/For_jenkin_setup.git' // Replace with your repo URL
+            }
+        }
+
+        stage('Setup Python Environment') {
+            steps {
+                script {
+                    bat 'python -m venv %VIRTUAL_ENV%'
+                    bat 'call %VIRTUAL_ENV%\\Scripts\\activate && pip install -r requirements.txt'
+                }
+            }
+        }
+
+        stage('Run Python Script') {
+            steps {
+                script {
+                    bat 'call %VIRTUAL_ENV%\\Scripts\\activate && python your_script.py'
+                }
+            }
+        }
+
+        stage('Clean Up') {
+            steps {
+                bat 'rmdir /s /q %WORKSPACE%'
+            }
+        }
+    }
+}
