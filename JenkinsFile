@@ -11,7 +11,7 @@ pipeline {
         stage('Setup Python Environment') {
             steps {
                 script {
-                    bat 'python -m venv %VIRTUAL_ENV%'
+                    bat 'py -m venv %VIRTUAL_ENV%'
                     bat 'call %VIRTUAL_ENV%\\Scripts\\activate'
                 }
             }
@@ -20,7 +20,7 @@ pipeline {
         stage('Run Python Script') {
             steps {
                 script {
-                    bat 'call %VIRTUAL_ENV%\\Scripts\\activate && python Main_python.py'
+                    bat 'call %VIRTUAL_ENV%\\Scripts\\activate && py Main_python.py'
                 }
             }
         }
