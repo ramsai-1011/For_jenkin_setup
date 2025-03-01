@@ -3,7 +3,7 @@ pipeline {
 
     environment {
         VIRTUAL_ENV = 'venv'
-        PYTHON_EXE = 'C:\Users\konda\Downloads\WINDOWS.X64_213000_db_home\python\bin\python.exe'
+        PYTHON_EXE = 'C:\\Users\\konda\\Downloads\\WINDOWS.X64_213000_db_home\\python\\bin\\python.exe'
     }
 
     stages {
